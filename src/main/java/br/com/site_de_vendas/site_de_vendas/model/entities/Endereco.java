@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "endereco")
@@ -37,17 +38,18 @@ public class Endereco {
 	private String cep;
 
 	@Column(length = 1, nullable = false)
-	private char status;
+	private char status = 1;
 	
+	@NotNull
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Cliente cliente;
+
 
 	public Endereco() {
 		
 	}
 
-	
-	public Endereco(String estado, String cidade, String bairro, String rua, int numero, String cep, char status,
+	public Endereco(String estado, String cidade, String bairro, String rua, int numero, String cep,
 			Cliente cliente) {
 		this.estado = estado;
 		this.cidade = cidade;
@@ -55,9 +57,9 @@ public class Endereco {
 		this.rua = rua;
 		this.numero = numero;
 		this.cep = cep;
-		this.status = status;
 		this.cliente = cliente;
 	}	
+
 	
 	public long getId(){
 		return id;

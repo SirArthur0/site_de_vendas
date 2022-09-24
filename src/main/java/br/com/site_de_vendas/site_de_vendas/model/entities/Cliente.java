@@ -36,7 +36,7 @@ public class Cliente {
 	private String telefone;
 	
 	@Column(nullable = false, length = 1)
-	private int status;
+	private int status = 1;
 	
 	@Column(name = "dt_cadastro")
 	@CreationTimestamp
@@ -48,14 +48,13 @@ public class Cliente {
 	}
 	
 	public Cliente(String nome, String nomeFantasia, String cnpj, String nomeResponsavel, String email,
-			String telefone, int status) {
+			String telefone) {
 		this.nome = nome;
 		this.nomeFantasia = nomeFantasia;
 		this.cnpj = cnpj;
 		this.nomeResponsavel = nomeResponsavel;
 		this.email = email;
 		this.telefone = telefone;
-		this.status = status;
 	}
 
 	
