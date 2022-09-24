@@ -22,7 +22,7 @@ public class EspecsLicencasController {
 		
 		elr.save(especsLicencas);
 		
-		if(especsLicencas.getId() >= 0) {
+		if(especsLicencas.getId() > 0) {
 			System.out.println("Especificações da licença cadastrado com sucesso.");
 		}else {
 			System.out.println("Por favor, cadastre as informações corretamente.");

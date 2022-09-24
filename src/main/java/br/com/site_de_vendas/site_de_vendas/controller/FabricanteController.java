@@ -22,7 +22,7 @@ public class FabricanteController {
 		
 		fr.save(fabricante);
 		
-		if(fabricante.getId() >= 0) {
+		if(fabricante.getId() > 0) {
 			System.out.println("Fabricante " + fabricante.getNomeFabricante() + " cadastrado com sucesso!");
 		}else {
 			System.out.println("Por favor, digite as informações corretamente.");

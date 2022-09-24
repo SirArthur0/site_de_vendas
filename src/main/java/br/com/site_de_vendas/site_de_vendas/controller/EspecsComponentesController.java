@@ -22,7 +22,7 @@ public class EspecsComponentesController {
 		
 		ecr.save(especsComponentes);
 	
-		if(especsComponentes.getId() >= 0) {
+		if(especsComponentes.getId() > 0) {
 			System.out.println("Especificações do componente cadastrada com sucesso!");
 		}
 		

@@ -21,7 +21,7 @@ public class EspecsPcNoteServerController {
 		
 		epnsr.save(especsPcNoteServer);
 		
-		if(especsPcNoteServer.getId() >= 0) {
+		if(especsPcNoteServer.getId() > 0) {
 			System.out.println("Especificações cadastrada com sucesso!!");
 		}else {
 			System.out.println("Por favor, cadestre as especificações corretamente.");

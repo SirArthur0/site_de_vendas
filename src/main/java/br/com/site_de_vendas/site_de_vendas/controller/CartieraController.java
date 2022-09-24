@@ -1,15 +1,13 @@
 package br.com.site_de_vendas.site_de_vendas.controller;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.com.site_de_vendas.site_de_vendas.model.entities.Carteira;
 import br.com.site_de_vendas.site_de_vendas.model.repositories.CarteiraRepository;
-
+ 
 @RestController
 @RequestMapping("/carteira")
 public class CartieraController {

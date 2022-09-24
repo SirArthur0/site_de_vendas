@@ -21,7 +21,7 @@ public class VendedorController {
 
 		vr.save(vendedor);
 
-		if(vendedor.getId() >= 0) {
+		if(vendedor.getId() > 0) {
 			System.out.println("Vendedor: " + vendedor.getNome()
 								+ " cadastrado com sucesso!!"
 								+ "n/ Por favor, anote sua ID: " + vendedor.getId());
