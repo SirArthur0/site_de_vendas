@@ -30,7 +30,7 @@ public class Vendedor {
 	private String telefone;
 	
 	@Column(length = 1, nullable = false)
-	private char status;
+	private char status = 1;
 	
 	@Column(name = "dt_cadastro")
 	@CreationTimestamp
