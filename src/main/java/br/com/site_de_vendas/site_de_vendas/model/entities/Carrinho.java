@@ -3,11 +3,13 @@ package br.com.site_de_vendas.site_de_vendas.model.entities;
 import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.CreationTimestamp;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Carrinho {
@@ -37,19 +39,24 @@ public class Carrinho {
 	
 	@OneToOne
 	private StatusGenericoC status;
-
 	
+	@OneToOne
+	@JsonIgnore
+	private Produto produto;
+
+
 	public Carrinho() {
 		
 	}
 	
-	public Carrinho(Vendedor vendedor, Cliente cliente, StatusGenericoC status) {
+	public Carrinho(Vendedor vendedor, Cliente cliente, StatusGenericoC status, Produto produto) {
 		this.vendedor = vendedor;
 		this.cliente = cliente;
 		this.status = status;
+		this.produto = produto;
 	}
 
-	
+
 	public long getId() {
 		return id;
 	}
@@ -97,6 +104,13 @@ public class Carrinho {
 	public void setStatus(StatusGenericoC status) {
 		this.status = status;
 	}
-	
+
+	public Produto getProduto() {
+		return produto;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}	
 	
 }
