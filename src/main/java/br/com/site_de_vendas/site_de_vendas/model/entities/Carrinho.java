@@ -3,7 +3,6 @@ package br.com.site_de_vendas.site_de_vendas.model.entities;
 import java.sql.Timestamp;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +21,10 @@ public class Carrinho {
 	decidir como implementar
 	private int nr_carrinho;
 	*/
+	
+	
+	@Column(nullable = false)
+	private int quantidade;
 	
 	@Column(name = "dt_criacao")
 	@CreationTimestamp
@@ -49,11 +52,12 @@ public class Carrinho {
 		
 	}
 	
-	public Carrinho(Vendedor vendedor, Cliente cliente, StatusGenericoC status, Produto produto) {
+	public Carrinho(Vendedor vendedor, Cliente cliente, StatusGenericoC status, Produto produto, int quantidade) {
 		this.vendedor = vendedor;
 		this.cliente = cliente;
 		this.status = status;
 		this.produto = produto;
+		this.quantidade = quantidade;
 	}
 
 
@@ -111,6 +115,14 @@ public class Carrinho {
 
 	public void setProduto(Produto produto) {
 		this.produto = produto;
+	}
+
+	public int getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
 	}	
 	
 }
