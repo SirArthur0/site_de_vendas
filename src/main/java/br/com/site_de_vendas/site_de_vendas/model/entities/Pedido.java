@@ -7,65 +7,46 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
-@Table(name = "item_pedido")
-public class ItemPedido {
-
+public class Pedido {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
-	private int quantidade;
-	
-	@Column(nullable = false)
-	private long produto;
-	
-	@Column(name = "dt_criacao")
-	@CreationTimestamp
-	private Timestamp dtCadastro;
-	
 	@OneToOne
 	private Carrinho carrinho;
 	
+	@OneToOne
+	private StatusGenericoC sgc;
+	
+	@OneToOne
+	private ItemPedido itemPedido;
 
-	public ItemPedido() {
+	@Column(name = "dt_criacao")
+	@CreationTimestamp
+	private Timestamp dtCadastro;
+
+	
+	public Pedido() {
 		
 	}
 
-	public ItemPedido(Carrinho carrinho, int quantidade) {
+	public Pedido(Carrinho carrinho, StatusGenericoC sgc, ItemPedido itemPedido) {
 		this.carrinho = carrinho;
-		this.quantidade = carrinho.getQuantidade();
-		this.produto = carrinho.getProduto().getId();
+		this.sgc = sgc;
+		this.itemPedido = itemPedido;		
 	}
 
-
+	
 	public long getId() {
 		return id;
 	}
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public int getQuantidade() {
-		return quantidade;
-	}
-
-	public void setQuantidade(int quantidade) {
-		this.quantidade = quantidade;
-	}
-
-	public Timestamp getDtCadastro() {
-		return dtCadastro;
-	}
-
-	public void setDtCadastro(Timestamp dtCadastro) {
-		this.dtCadastro = dtCadastro;
 	}
 
 	public Carrinho getCarrinho() {
@@ -76,13 +57,28 @@ public class ItemPedido {
 		this.carrinho = carrinho;
 	}
 
-	public long getProduto() {
-		return produto;
+	public StatusGenericoC getSgc() {
+		return sgc;
 	}
 
-	public void setProduto(long produto) {
-		this.produto = produto;
+	public void setSgc(StatusGenericoC sgc) {
+		this.sgc = sgc;
 	}
-	
+
+	public Timestamp getDtCadastro() {
+		return dtCadastro;
+	}
+
+	public void setDtCadastro(Timestamp dtCadastro) {
+		this.dtCadastro = dtCadastro;
+	}
+
+	public ItemPedido getItemPedido() {
+		return itemPedido;
+	}
+
+	public void setItemPedido(ItemPedido itemPedido) {
+		this.itemPedido = itemPedido;
+	}
 	
 }
